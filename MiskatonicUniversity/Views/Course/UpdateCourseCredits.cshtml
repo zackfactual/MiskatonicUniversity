@@ -1,0 +1,26 @@
+﻿@model MiskatonicUniversity.Models.Course
+
+@{
+    ViewBag.Title = "UpdateCourseCredits";
+}
+
+<link href="@Url.Content("~/Content/CSS/course.css")" rel="stylesheet" type="text/css" />
+
+<h2>Update Course Credits</h2>
+
+@if (ViewBag.RowsAffected == null)
+{
+    using (Html.BeginForm())
+    {
+        <p>Enter a number by which to multiply every course's credits: @Html.TextBox("multiplier")</p>
+        <p><input type="submit" value="Update" /></p>
+    }
+}
+
+@if (ViewBag.RowsAffected != null)
+{
+    <p>Number of rowsupdate: @ViewBag.RowsAffected</p>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
